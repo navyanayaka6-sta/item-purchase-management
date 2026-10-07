@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item & Purchase Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+```
+<header class="navbar">
+    <div class="container nav-content">
+        <h1>Item & Purchase Management</h1>
+
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="items.html">Items</a>
+            <a href="purchase.html">New Purchase</a>
+            <a href="purchases.html">Purchase History</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="hero">
+        <h2>Item & Purchase Management System</h2>
+        <p>
+            Manage item types, items, stock availability and purchases
+            from one simple application.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="items.html" class="btn btn-primary">Manage Items</a>
+            <a href="purchase.html" class="btn btn-success">Create Purchase</a>
+        </div>
+    </section>
+
+    <section class="dashboard-grid">
+
+        <div class="dashboard-card">
+            <h3>Items</h3>
+            <p id="totalItems">0</p>
+            <a href="items.html">View Items →</a>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Active Items</h3>
+            <p id="activeItems">0</p>
+            <a href="items.html">Manage Items →</a>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Out of Stock</h3>
+            <p id="outOfStock">0</p>
+            <a href="items.html">Check Stock →</a>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Purchases</h3>
+            <p id="totalPurchases">0</p>
+            <a href="purchases.html">Purchase History →</a>
+        </div>
+
+    </section>
+
+    <section class="info-section">
+        <h2>System Features</h2>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <h3>Item Management</h3>
+                <p>
+                    Add, update and manage items with item types,
+                    purchase dates and stock quantities.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Stock Management</h3>
+                <p>
+                    Stock is automatically reduced when purchases
+                    are created and updated.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Purchase Management</h3>
+                <p>
+                    Create purchases containing multiple items
+                    and quantities.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Validation</h3>
+                <p>
+                    Inactive items and items without enough stock
+                    cannot be purchased.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>Item & Purchase Management System</p>
+</footer>
+
+<script src="app.js"></script>
+<script>
+    loadDashboard();
+</script>
+```
+
+</body>
+</html>

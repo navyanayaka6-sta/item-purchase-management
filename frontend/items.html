@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items - Item & Purchase Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+```
+<header class="navbar">
+    <div class="container nav-content">
+        <h1>Item & Purchase Management</h1>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="items.html" class="active">Items</a>
+            <a href="purchase.html">New Purchase</a>
+            <a href="purchases.html">Purchase History</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <div class="page-header">
+        <div>
+            <h2>Item Management</h2>
+            <p>Manage item types and items.</p>
+        </div>
+    </div>
+
+    <div id="message"></div>
+
+    <!-- ITEM TYPE SECTION -->
+    <section class="card">
+
+        <div class="section-header">
+            <h2>Item Types</h2>
+        </div>
+
+        <form id="itemTypeForm" class="inline-form">
+
+            <div class="form-group">
+                <label for="typeName">Type Name</label>
+                <input
+                    type="text"
+                    id="typeName"
+                    placeholder="Example: Electronics"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Add Type
+            </button>
+
+        </form>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Type Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="itemTypesTableBody">
+                    <tr>
+                        <td colspan="3" class="text-center">
+                            Loading...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+    <section class="card">
+
+        <div class="section-header">
+            <h2 id="itemFormTitle">Add New Item</h2>
+        </div>
+
+        <form id="itemForm">
+
+            <input type="hidden" id="itemId">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="itemName">
+                        Item Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="itemName"
+                        placeholder="Example: Laptop"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="itemType">
+                        Item Type
+                    </label>
+
+                    <select id="itemType" required>
+                        <option value="">
+                            Select Item Type
+                        </option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="purchaseDate">
+                        Purchase Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="purchaseDate"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="stockAvailable">
+                        Initial Stock
+                    </label>
+
+                    <input
+                        type="number"
+                        id="stockAvailable"
+                        min="0"
+                        value="0"
+                        required
+                    >
+                </div>
+
+
+                <div class="form-group checkbox-group">
+                    <label>
+                        <input
+                            type="checkbox"
+                            id="itemActive"
+                            checked
+                        >
+                        Active
+                    </label>
+                </div>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                    id="itemSubmitButton"
+                >
+                    Add Item
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="cancelEditButton"
+                    onclick="cancelItemEdit()"
+                    style="display:none;"
+                >
+                    Cancel
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+
+    <!-- ITEMS LIST -->
+    <section class="card">
+
+        <div class="section-header">
+            <h2>Items List</h2>
+
+            <button
+                class="btn btn-secondary"
+                onclick="loadItems()"
+            >
+                Refresh
+            </button>
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Purchase Date</th>
+                        <th>Stock</th>
+                        <th>Status</th>
+                        <th>Stock Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="itemsTableBody">
+
+                    <tr>
+                        <td colspan="8" class="text-center">
+                            Loading...
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <p>Item & Purchase Management System</p>
+</footer>
+
+
+<script src="app.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        loadItemTypes();
+        loadItems();
+
+        document
+            .getElementById("itemTypeForm")
+            .addEventListener("submit", addItemType);
+
+        document
+            .getElementById("itemForm")
+            .addEventListener("submit", saveItem);
+    });
+</script>
+```
+
+</body>
+</html>

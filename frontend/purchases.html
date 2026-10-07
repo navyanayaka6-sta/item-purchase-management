@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase History - Item & Purchase Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+```
+<header class="navbar">
+
+    <div class="container nav-content">
+
+        <h1>Item & Purchase Management</h1>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="items.html">Items</a>
+            <a href="purchase.html">New Purchase</a>
+            <a href="purchases.html" class="active">
+                Purchase History
+            </a>
+        </nav>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+    <div class="page-header">
+
+        <div>
+            <h2>Purchase History</h2>
+
+            <p>
+                View all purchases and their item details.
+            </p>
+        </div>
+
+        <a
+            href="purchase.html"
+            class="btn btn-primary"
+        >
+            + New Purchase
+        </a>
+
+    </div>
+
+
+    <div id="message"></div>
+
+
+    <section class="card">
+
+        <div class="section-header">
+
+            <h2>Purchases</h2>
+
+            <button
+                class="btn btn-secondary"
+                onclick="loadPurchases()"
+            >
+                Refresh
+            </button>
+
+        </div>
+
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Order ID</th>
+                        <th>Purchase Date</th>
+                        <th>Total Items</th>
+                        <th>Total Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="purchasesTableBody">
+
+                    <tr>
+                        <td colspan="6" class="text-center">
+                            Loading...
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <section
+        class="card"
+        id="purchaseDetailsSection"
+        style="display:none;"
+    >
+
+        <div class="section-header">
+
+            <h2>
+                Purchase Details
+            </h2>
+
+            <button
+                class="btn btn-secondary"
+                onclick="closePurchaseDetails()"
+            >
+                Close
+            </button>
+
+        </div>
+
+
+        <div id="purchaseDetails"></div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <p>Item & Purchase Management System</p>
+</footer>
+
+
+<script src="app.js"></script>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+        loadPurchases();
+    });
+
+</script>
+```
+
+</body>
+</html>

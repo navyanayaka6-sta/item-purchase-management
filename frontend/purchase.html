@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Purchase - Item & Purchase Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+```
+<header class="navbar">
+    <div class="container nav-content">
+
+        <h1>Item & Purchase Management</h1>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="items.html">Items</a>
+            <a href="purchase.html" class="active">New Purchase</a>
+            <a href="purchases.html">Purchase History</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<main class="container">
+
+    <div class="page-header">
+
+        <div>
+            <h2>Create Purchase</h2>
+
+            <p>
+                Create a purchase with one or more items.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div id="message"></div>
+
+
+    <section class="card">
+
+        <form id="purchaseForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label for="purchaseDate">
+                        Purchase Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="purchaseDate"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="section-header">
+
+                <h2>Purchase Items</h2>
+
+                <button
+                    type="button"
+                    class="btn btn-success"
+                    onclick="addPurchaseRow()"
+                >
+                    + Add Item
+                </button>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Item</th>
+                            <th>Available Stock</th>
+                            <th>Quantity</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="purchaseItemsBody">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div class="purchase-summary">
+
+                <strong>
+                    Total Items:
+                    <span id="totalPurchaseItems">0</span>
+                </strong>
+
+                <strong>
+                    Total Quantity:
+                    <span id="totalPurchaseQuantity">0</span>
+                </strong>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                >
+                    Create Purchase
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    onclick="window.location.href='purchases.html'"
+                >
+                    View Purchases
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>Purchase Rules</h2>
+
+        <ul class="rules-list">
+
+            <li>
+                Only active items can be purchased.
+            </li>
+
+            <li>
+                Purchase quantity must be greater than zero.
+            </li>
+
+            <li>
+                Purchase quantity cannot be greater than available stock.
+            </li>
+
+            <li>
+                The same item cannot be added more than once.
+            </li>
+
+            <li>
+                Stock is automatically reduced after a successful purchase.
+            </li>
+
+            <li>
+                Purchases cannot be deleted.
+            </li>
+
+        </ul>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <p>Item & Purchase Management System</p>
+</footer>
+
+
+<script src="app.js"></script>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", async () => {
+
+        document.getElementById("purchaseDate").value =
+            getTodayDate();
+
+        await loadPurchaseItems();
+
+        addPurchaseRow();
+
+        document
+            .getElementById("purchaseForm")
+            .addEventListener("submit", createPurchase);
+
+    });
+
+</script>
+```
+
+</body>
+</html>
